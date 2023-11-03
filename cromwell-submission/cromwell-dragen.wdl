@@ -10,9 +10,23 @@ task myTask {
 	gcloud batch jobs submit $NAME --location us-central1 --config batchsubmit.json
 	sleep 120
 	echo "Batch $NAME started:"
-        while [[ $(gcloud batch jobs describe --location us-central1 $NAME | grep state:) != "SUCCEEDED" ]] || [[ $(gcloud batch jobs describe --location us-central1 $NAME | grep state:) != "FAILED" ]] ; do
-  gcloud batch jobs describe --location us-central1 $NAME | grep state: && sleep 60
-done
+
+	while true; do
+  		# Run your command here.
+		output=`gcloud batch jobs describe --location us-central1 $NAME | grep state: | cut -c 10-20`
+		if [[ "$output" == "SUCCEEDED" ]]; then
+    		echo "Job $NAME status: SUCCEEDED"
+		break
+  		elif [[ "$output" == "FAILED" ]]; then
+    		echo "Job $NAME status: FAILED"
+    		break
+  		else
+    		# Continue looping.
+    		gcloud batch jobs describe --location us-central1 $NAME | grep state:
+		sleep 60
+  		fi
+	done
+
 	echo "Batch job $NAME completed"
 	 }
     
