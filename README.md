@@ -101,6 +101,16 @@ Cloud Logging only generates logs after a job starts running. To verify if a job
 
 When the DRAGEN job completes successfully, it will return “DRAGEN finished normally”  in the job logs. You can view the job status in the Batch section too.
 
+## Other ways to submit Illumina DRAGEN jobs
+
+There are multiple ways to submit Illumina DRAGEN pipelines:
+
+ - Script submission - This page
+ - [Google Cloud Batch submission](batch-submission/README.md)
+ - [Cromwell submission](cromwell-submission/README.md)
+ - [Nextflow submission](nextflow-submission/README.md)
+
+
 ## Troubleshooting / Feedback
 
 If you encounter errors while running the jobs in the EAP environment based on the above use case, please submit a request to:

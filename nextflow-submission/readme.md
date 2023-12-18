@@ -2,7 +2,13 @@
 
 ## Steps
 
-1. You still need to make prepare data and secrets mentioned in this git page.
+1. You still need to make prepare data and secrets mentioned in this git.
+        Please check with the following:
+        - Batch API enabled
+        - GCP IAM permission for Batch job submission
+        - Data uploaded to the Google Cloud Storage (GCS) Bucket
+        - Google Cloud Secrets setup completed with JARVICE API Username, APIKEY, GCS S3_Access_key, GCS S3_Secret_key, Illumina License server URI
+
 2. Prepare the single JSON file. 
 	This is the single files to submit a new Illumina DRAGEN job into Batch.  This is an example we use in the batch-submission directory:
 ```
@@ -74,7 +80,7 @@
   After editing the file, you can upload this json file into your GCS bucket
   
 3. Provided that you can launch nextflow job into GCP batch. This means you installed NEXTFLOW correctly. 
-   This is the config file you need to create for Batch.
+   This is the sample Nextflow config file you need to submit jobs into GCP Batch from Nextflow. You will need to update the correct GCP project, network and serviceaccountemail etc. 
 
 ```
 profiles{
@@ -100,9 +106,9 @@ profiles{
   }
 }
 ```
-You can find the config file in the git nextflow folder.
+You can find this sample config file in the Nextflow folder.
 
-4. Prepare your nextflow file:
+4. Prepare your Nextflow file:
 The task has couple steps including
 	- downloading the json file
 	- launch the batch job with the Illumina DRAGEN batch json
