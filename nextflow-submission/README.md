@@ -2,15 +2,16 @@
 
 ## Steps
 
-1. You still need to make prepare data and secrets mentioned in this git.
-        Please check with the following:
-        - Batch API enabled
-        - GCP IAM permission for Batch job submission
-        - Data uploaded to the Google Cloud Storage (GCS) Bucket
-        - Google Cloud Secrets setup completed with JARVICE API Username, APIKEY, GCS S3_Access_key, GCS S3_Secret_key, Illumina License server URI
+1. You still need to make prepare data and secrets mentioned in this git. Please check with the following:
+	
+	- Batch API enabled
+	- GCP IAM permission for Batch job submission
+	- Data uploaded to the Google Cloud Storage (GCS) Bucket
+	- Google Cloud Secrets setup completed with JARVICE API Username, APIKEY, GCS S3_Access_key, GCS S3_Secret_key, Illumina License server URI
 
 2. Prepare the single JSON file. 
-	This is the single files to submit a new Illumina DRAGEN job into Batch.  This is an example we use in the batch-submission directory:
+
+This is the single files to submit a new Illumina DRAGEN job into Batch.  This is an example we use in the batch-submission directory:
 ```
 {
   "taskGroups": [
